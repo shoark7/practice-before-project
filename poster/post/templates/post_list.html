@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Post united</title>
+</head>
+<body>
+  {% if posts %}
+    {% for post in posts %}
+    <a href="{% url 'post:detail' post.id %}">
+      <div>
+        <p>{{ post.writer }}</p>
+        <h1>{{post.title}}</h1>
+        <p>{{post.content|truncatechars:5}}...</p>
+      </div>
+    </a>
+    <br>
+    {% endfor %}
+  {% else %}
+    <p>There is no post..</p>
+  {% endif %}
+</body>
+</html>
