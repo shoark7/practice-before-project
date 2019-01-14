@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome to index page</title>
+</head>
+<body>
+  {% if request.user.is_authenticated %}
+    <p>{{ request.user.nickname }}님 안녕하세요 :)</p>
+    <p> <a href="{% url 'user:logout' %}">로그아웃</a> </p>
+		<img src="{{ request.user.user_image.url }}" alt="">
+		
+  {% else %}
+    <p> <a href="{% url 'user:login' %}">로그인</a> </p>
+    <p> <a href="{% url 'user:signin' %}">회원가입</a> </p>
+  {% endif %}
+
+  Welcome to our index page boy!
+  
+</body>
+</html>
