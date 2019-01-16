@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>새 포스트 생성</title>
+</head>
+<body>
+  <form action="{% url 'post:new' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="text" type="submit" name="" value="생성">
+    
+  </form>
+  
+  
+</body>
+</html>

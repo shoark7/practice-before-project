@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>asdf</title>
+</head>
+<body>
+  <p> <a href="{% url 'index' %}">홈으로</a> </p>
+  {% if post.writer == request.user %}
+    <p> <a href="{% url 'post:delete' post.pk %}">삭제하기</a> </p>
+    <p> <a href="{% url 'post:update' post.pk %}">수정하기</a> </p>
+  {% endif %}
+
+  {{ post.title }}
+  {{ post.content }}
+</body>
+</html>

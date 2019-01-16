@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # 'post.apps.PostConfig',
+    'post.apps.PostConfig',
     'user.apps.UserConfig',
 
     'django.contrib.admin',
@@ -128,5 +128,6 @@ STATIC_URL = '/static/'
 
 # Custom
 AUTH_USER_MODEL = 'user.MyUser'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

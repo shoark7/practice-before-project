@@ -9,7 +9,7 @@ from .forms import UserLoginForm, UserCreationForm
 
 def log_out(request):
     logout(request)
-    return render(request, 'index.html')
+    return HttpResponseRedirect(reverse('index'))
 
 
 def log_in(request):

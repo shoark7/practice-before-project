@@ -21,6 +21,7 @@ from . import views, settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('posts/', include('post.urls')),
     path('user/', include('user.urls')),
     path('', views.index, name='index'),
 ]

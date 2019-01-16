@@ -8,12 +8,24 @@
   {% if request.user.is_authenticated %}
     <p>{{ request.user.nickname }}님 안녕하세요 :)</p>
     <p> <a href="{% url 'user:logout' %}">로그아웃</a> </p>
-		<img src="{{ request.user.user_image.url }}" alt="">
-		
+		<p> <a href="">내 글만 모아보기</a> </p>
+		<p> <a href="{% url 'post:new' %}">글 쓰기</a> </p>
+		<br>
   {% else %}
     <p> <a href="{% url 'user:login' %}">로그인</a> </p>
     <p> <a href="{% url 'user:signin' %}">회원가입</a> </p>
   {% endif %}
+
+	{% if posts %}
+		{% for post in posts %}
+			<h3><a href="{% url 'post:detail' post.pk %}">{{ post.title }}</a></h3>
+			<p>{{ post.posted_time }}</p>
+			<p>posted by {{ request.user.nickname }}</p>
+			<br>
+		{% endfor %}
+	{% else %}
+		<h3>포스트가 없습니다.</h3>
+	{% endif %}	
 
   Welcome to our index page boy!
   
